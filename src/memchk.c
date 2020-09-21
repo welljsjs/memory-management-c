@@ -17,7 +17,7 @@ union align
 };
 
 #define hash(p, t) (((unsigned long)(p) >> 3) & \
-                    (sizeof(t) / sizeof((t)[0] - 1)))
+                    (sizeof(t) / sizeof((t)[0]) - 1))
 
 #define NDESCRIPTORS 512
 
