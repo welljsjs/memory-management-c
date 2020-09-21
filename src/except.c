@@ -17,7 +17,7 @@ void Except_raise(T const *e, char const *file, int line)
     if (e->reason)
       fprintf(stderr, " %s", e->reason);
     else
-      fprintf(stderr, " at 0x%p", e);
+      fprintf(stderr, " at 0x%p", (void *)e);
     if (file && line > 0)
       fprintf(stderr, " raised at %s:%d\n", file, line);
     fprintf(stderr, "...aborting...\n");

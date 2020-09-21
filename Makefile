@@ -25,8 +25,14 @@ SO=.so
 E=
 CC=cc
 I=include
-CFLAGS=-g -I$I -Wall -Wextra -std=c99 -Wmissing-prototypes -Wformat-security -Wswitch-enum
-LDFLAGS=-g
+CFLAGS+=-I$I 
+CFLAGS+=-Wall -Wextra 
+CFLAGS+=-Wmissing-prototypes
+CFLAGS+=-Wformat-security -Wswitch-enum
+CFLAGS+=-pedantic-errors
+CFLAGS+=-std=c11
+CFLAGS+=-O3
+LDFLAGS=-O3
 LD=cc
 AS=as
 AR=ar ruv
@@ -44,21 +50,21 @@ MKDIR=mkdir -p
 DIRNAME=dirname
 
 OBJS=         $Bassert$O \
-              $Bexcept$O \
-              $Bmem$O \
-              $Bmemchk$O \
-              $(THREADS)
+							$Bexcept$O \
+							$Bmem$O \
+							$Bmemchk$O \
+							$(THREADS)
 
 
 all::         $B$(TARGET)$A 
 
 $B$(TARGET)$A::	$(OBJS) $(EXTRAS)
-              $(MKDIR) $(shell $(DIRNAME) $(TARGET))
-              $(AR) $@ $(OBJS) $(EXTRAS); $(RANLIB) $@ || true
+							$(MKDIR) $(shell $(DIRNAME) $(TARGET))
+							$(AR) $@ $(OBJS) $(EXTRAS); $(RANLIB) $@ || true
 
 # Linux-specific rule for building a shared library
 $B$(TARGET)$(SO).$(MAJORVERSION): $(OBJS) $(EXTRAS)
-              $(CC) -shared -Wl,-soname,$(TARGET)$(SO).$(MAJORVERSION) -o $@ $(OBJS) $(EXTRAS)
+							$(CC) -shared -Wl,-soname,$(TARGET)$(SO).$(MAJORVERSION) -o $@ $(OBJS) $(EXTRAS)
 
 $Bassert$O:   $(SRC)/assert$C;      $(CC) $(CFLAGS) -c -o $@ $(SRC)/assert$C
 $Bexcept$O:   $(SRC)/except$C;      $(CC) $(CFLAGS) -c -o $@ $(SRC)/except$C
@@ -66,11 +72,11 @@ $Bmem$O:      $(SRC)/mem$C;         $(CC) $(CFLAGS) -c -o $@ $(SRC)/mem$C
 $Bmemchk$O:   $(SRC)/memchk$C;      $(CC) $(CFLAGS) -c -o $@ $(SRC)/memchk$C
 
 clean::
-              $(RM) $B*$O
-              $(RM) $(EXAMPLES)
+							$(RM) $B*$O
+							$(RM) $(EXAMPLES)
 
 clobber::     clean
-              $(RM) $B$(TARGET)$A
+							$(RM) $B$(TARGET)$A
 
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.

@@ -6,4 +6,3 @@ void(assert)(int e)
 {
   assert(e);
 }
-
