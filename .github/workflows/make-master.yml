@@ -23,4 +23,6 @@ jobs:
         env:
           CC: ${{ matrix.compiler }}
           STD: ${{ matrix.standard }}
-        run: make
+        run: |
+          make version
+          make

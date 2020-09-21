@@ -79,6 +79,9 @@ clean::
 clobber::     clean
 							$(RM) $B$(TARGET)$A
 
+version::
+							$(CC) -v
+
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 
