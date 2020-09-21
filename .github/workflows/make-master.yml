@@ -22,4 +22,5 @@ jobs:
       - name: Build
         env:
           CC: ${{ matrix.compiler }}
-        run: CFLAGS="$(CFLAGS) -std=${{ matrix.standard }}" make
+          STD: ${{ matrix.standard }}
+        run: make

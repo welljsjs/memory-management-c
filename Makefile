@@ -25,12 +25,13 @@ SO=.so
 E=
 CC=cc
 I=include
+STD?=c11
 CFLAGS+=-I$I 
 CFLAGS+=-Wall -Wextra 
 CFLAGS+=-Wmissing-prototypes
 CFLAGS+=-Wformat-security -Wswitch-enum
 CFLAGS+=-pedantic-errors
-CFLAGS+=-std=c11
+CFLAGS+=-std=$(STD)
 CFLAGS+=-O3
 LDFLAGS=-O3
 LD=cc
