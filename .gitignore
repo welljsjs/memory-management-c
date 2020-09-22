@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+build/
+CMakeFiles/
 
 # Object files
 *.o
