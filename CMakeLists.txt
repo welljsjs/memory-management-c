@@ -30,8 +30,8 @@ set_target_properties (mem PROPERTIES
 )
 
 target_compile_options (mem PUBLIC
-  $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic-errors -Wmissing-prototypes -Wformat-security -Wswitch-enum>
+  $<$<C_COMPILER_ID:MSVC>:/W4 /WX>
+  $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic-errors -Wmissing-prototypes -Wformat-security -Wswitch-enum>
 )
 
 include (CheckIncludeFiles)
