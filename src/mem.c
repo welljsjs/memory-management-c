@@ -41,8 +41,7 @@ void *Mem_calloc(long count, long nbytes,
 }
 
 void Mem_free(void *ptr,
-              __attribute__((unused)) char const *file,
-              __attribute__((unused)) int line)
+              char const *file, int line)
 {
   if (ptr)
     free(ptr);
