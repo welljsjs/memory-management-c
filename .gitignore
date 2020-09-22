@@ -2,6 +2,7 @@
 *.d
 build/
 CMakeFiles/
+include/config.h
 
 # Object files
 *.o
