@@ -19,8 +19,7 @@ add_library (mem STATIC
 	src/memchk.c
 )
 
-target_include_directories (mem 
-	PUBLIC 
+target_include_directories (mem PUBLIC 
 	${PROJECT_SOURCE_DIR}/include
 )
 
