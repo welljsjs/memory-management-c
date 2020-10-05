@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.13)
 project(libmem VERSION 0.1.0
 				DESCRIPTION "Memory Management Utilities Library"
 				HOMEPAGE_URL "https://github.com/welljsjs/memory-management-c"
@@ -13,6 +13,7 @@ project(libmem VERSION 0.1.0
 
 # Generate static library from library sources
 add_library (mem STATIC
+	src/arena.c
 	src/assert.c
 	src/except.c
 	src/mem.c
@@ -35,25 +36,39 @@ target_compile_options (mem PUBLIC
 )
 
 include (CheckIncludeFiles)
+include (CheckSymbolExists)
+include (CheckTypeSize)
+
 CHECK_INCLUDE_FILES (stdlib.h HAVE_STDLIB_H)
+CHECK_SYMBOL_EXISTS (malloc stdlib.h HAVE_MALLOC)
+CHECK_SYMBOL_EXISTS (calloc stdlib.h HAVE_CALLOC)
+CHECK_SYMBOL_EXISTS (free stdlib.h HAVE_FREE)
+CHECK_SYMBOL_EXISTS (realloc stdlib.h HAVE_REALLOC)
+
 CHECK_INCLUDE_FILES (stdio.h HAVE_STDIO_H)
+CHECK_SYMBOL_EXISTS (fprintf stdio.h HAVE_FPRINTF)
+
 CHECK_INCLUDE_FILES (stddef.h HAVE_STDDEF_H)
+CHECK_TYPE_SIZE (max_align_t MAX_ALIGN_T)
+
 CHECK_INCLUDE_FILES (string.h HAVE_STRING_H)
+CHECK_SYMBOL_EXISTS (memcpy string.h HAVE_MEMCPY)
+CHECK_SYMBOL_EXISTS (memset string.h HAVE_MEMSET)
+CHECK_SYMBOL_EXISTS (memmove string.h HAVE_MEMMOVE)
+
 CHECK_INCLUDE_FILES (setjmp.h HAVE_SETJMP_H)
+CHECK_SYMBOL_EXISTS (setjmp setjmp.h HAVE_SETJMP)
+CHECK_SYMBOL_EXISTS (longjmp setjmp.h HAVE_LONGJMP)
+
 CHECK_INCLUDE_FILES (malloc.h HAVE_MALLOC_H)
 
-include(CheckSymbolExists)
-check_symbol_exists (setjmp setjmp.h HAVE_SETJMP)
-check_symbol_exists (longjmp setjmp.h HAVE_LONGJMP)
-check_symbol_exists(malloc stdlib.h HAVE_MALLOC)
-check_symbol_exists(calloc stdlib.h HAVE_CALLOC)
-check_symbol_exists(free stdlib.h HAVE_FREE)
-check_symbol_exists(fprintf stdio.h HAVE_FPRINTF)
-check_symbol_exists(memcpy string.h HAVE_MEMCPY)
-check_symbol_exists(memset string.h HAVE_MEMSET)
-check_symbol_exists(memmove string.h HAVE_MEMMOVE)
+CHECK_INCLUDE_FILES (stdint.h HAVE_STDINT_H)
+CHECK_TYPE_SIZE (uintptr_t UINTPTR_T)
 
-configure_file (${CMAKE_CURRENT_SOURCE_DIR}/include/config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/config.h ESCAPE_QUOTES)
+CHECK_INCLUDE_FILES (stdalign.h HAVE_STDALIGN_H)
+CHECK_SYMBOL_EXISTS (alignof stdalign.h HAVE_ALIGNOF)
+
+configure_file (${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_SOURCE_DIR}/include/config.h ESCAPE_QUOTES)
 
 set (CPACK_PROJECT_NAME ${PROJECT_NAME})
 set (CPACK_PROJECT_VERSION ${PROJECT_VERSION})
