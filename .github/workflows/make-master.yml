@@ -55,6 +55,17 @@ jobs:
       #   working-directory: ${{runner.workspace}}/build
       #   shell: bash
 
+      # - name: Upload release asset
+      #   if: github.event.action == 'published'
+      #   uses: actions/upload-release-asset@v1.0.1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ github.event.release.upload_url }}
+      #     asset_path: ./artifact/${{ matrix.zip_name }}.zip
+      #     asset_name: ${{ matrix.zip_name }}.zip
+      #     asset_content_type: application/zip
+
   docs:
     runs-on: ubuntu-latest
 
@@ -67,6 +78,6 @@ jobs:
 
       - name: Deploy Documentation
         uses: peaceiris/actions-gh-pages@v3
-        with: 
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./docs/html
