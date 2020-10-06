@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memory_2dmanagement_2dc_0',['memory-management-c',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['changelog_0',['CHANGELOG',['../md__c_h_a_n_g_e_l_o_g.html',1,'']]]
 ];
