@@ -51,6 +51,26 @@ const T Text_ucase = {26, cset + 'A'};
 const T Text_lcase = {26, cset + 'a'};
 const T Text_digits = {10, cset + '0'};
 const T Text_null = {0, cset};
+static struct chunk
+{
+  struct chunk *link;
+  char *avail;
+  char *limit;
+} head = {NULL, NULL, NULL}, *current = &head;
+
+static char *alloc(int len)
+{
+  assert(len >= 0);
+  if (current->avail + len > current->limit)
+  {
+    current = current->link = ALLOC(sizeof(*current) + 10 * 1024 + len);
+    current->avail = (char *)(current + 1);
+    current->limit = current->avail + 10 * 1024 + len;
+    current->link = NULL;
+  }
+  current->avail += len;
+  return current->avail - len;
+}
 
 int Text_pos(T s, int i)
 {
@@ -58,4 +78,57 @@ int Text_pos(T s, int i)
   i = idx(i, s.len);
   assert(i >= 0 && i <= s.len);
   return i + 1;
+}
+
+T Text_box(char const *str, int len)
+{
+  T text;
+
+  assert(str);
+  assert(len >= 0);
+  text.str = str;
+  text.len = len;
+  return text;
+}
+
+T Text_sub(T s, int i, int j)
+{
+  T text;
+
+  assert(s.len >= 0 && s.str);
+  i = idx(i, s.len);
+  j = idx(j, s.len);
+  if (i > j)
+  {
+    int t = i;
+    i = j;
+    j = t;
+  }
+  assert(i >= 0 && j <= s.len);
+
+  text.len = j - i;
+  text.str = s.str + i;
+  return text;
+}
+
+T Text_put(char const *str)
+{
+  T text;
+
+  assert(str);
+  text.len = strlen(str);
+  text.str = memcpy(alloc(text.len), str, text.len);
+  return text;
+}
+
+char *Text_get(char *str, int size, T s)
+{
+  assert(s.len >= 0 && s.str);
+  if (str == NULL)
+    str = ALLOC(s.len + 1);
+  else
+    assert(size >= s.len + 1);
+  memcpy(str, s.str, s.len);
+  str[s.len] = '\0';
+  return str;
 }
