@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <string.h>
 #include "assert.h"
@@ -36,6 +37,9 @@ union header
 static T freechunks;
 static int nfree;
 
+/**
+ * @returns A new arena
+ */
 T Arena_new(void)
 {
   T arena = malloc(sizeof(*arena));
@@ -46,6 +50,9 @@ T Arena_new(void)
   return arena;
 }
 
+/**
+ * @param ap Pointer to an arena
+ */
 void Arena_dispose(T *ap)
 {
   assert(ap && *ap);
@@ -54,6 +61,12 @@ void Arena_dispose(T *ap)
   *ap = NULL;
 }
 
+/**
+ * @param arena Arena in which the memory will be allocated
+ * @param nbytes Size of the block of memory to be allocated
+ * @param file Current file
+ * @param line Current line number
+ */
 void *Arena_alloc(T arena, long nbytes,
                   char const *file, int line)
 {

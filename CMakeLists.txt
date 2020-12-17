@@ -18,6 +18,8 @@ add_library (mem STATIC
 	src/except.c
 	src/mem.c
 	src/memchk.c
+	src/text.c
+	src/thread.c
 )
 
 target_include_directories (mem PUBLIC 
