@@ -18,5 +18,5 @@ var searchData=
   ['assert_2ec_16',['assert.c',['../assert_8c.html',1,'']]],
   ['assert_2eh_17',['assert.h',['../assert_8h.html',1,'']]],
   ['assert_5ffailed_18',['Assert_Failed',['../assert_8c.html#a02c91dd1cedbfe4b9e31d7775e0ead7f',1,'Assert_Failed():&#160;assert.c'],['../except_8h.html#a02c91dd1cedbfe4b9e31d7775e0ead7f',1,'Assert_Failed():&#160;assert.c']]],
-  ['avail_19',['avail',['../struct_t.html#afc41274cc7b05a9c916fa194851965a3',1,'T']]]
+  ['avail_19',['avail',['../struct_t.html#afc41274cc7b05a9c916fa194851965a3',1,'T::avail()'],['../struct_text__save___t.html#add3879246c529ef340e4974a7123b96f',1,'Text_save_T::avail()']]]
 ];
