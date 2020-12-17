@@ -68,6 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -81,6 +82,11 @@ $(function() {
 <code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mem_8h_source.html">mem.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>chunk</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a0acb682b8260ab1c60b918599864e2e5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#a0acb682b8260ab1c60b918599864e2e5">T</a>&#160;&#160;&#160;Text_T</td></tr>
@@ -92,6 +98,14 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ac4eb56c8da573ed064ca1864ef32da83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#ac4eb56c8da573ed064ca1864ef32da83">Text_pos</a> (<a class="el" href="struct_t.html">T</a> s, int i)</td></tr>
 <tr class="separator:ac4eb56c8da573ed064ca1864ef32da83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b8b1fd7b75258d4797e2cf389247da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t.html">T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#a68b8b1fd7b75258d4797e2cf389247da">Text_box</a> (char const *str, int len)</td></tr>
+<tr class="separator:a68b8b1fd7b75258d4797e2cf389247da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4a22f63fc61f3ed1c96502f86ece79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t.html">T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#a7c4a22f63fc61f3ed1c96502f86ece79">Text_sub</a> (<a class="el" href="struct_t.html">T</a> s, int i, int j)</td></tr>
+<tr class="separator:a7c4a22f63fc61f3ed1c96502f86ece79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44172d49224ae1bee49a229aa23bf1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t.html">T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#ab44172d49224ae1bee49a229aa23bf1f">Text_put</a> (char const *str)</td></tr>
+<tr class="separator:ab44172d49224ae1bee49a229aa23bf1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7befab40ef3ff58b0a3fc4a1c079483"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#ac7befab40ef3ff58b0a3fc4a1c079483">Text_get</a> (char *str, int size, <a class="el" href="struct_t.html">T</a> s)</td></tr>
+<tr class="separator:ac7befab40ef3ff58b0a3fc4a1c079483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -157,6 +171,68 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a68b8b1fd7b75258d4797e2cf389247da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b8b1fd7b75258d4797e2cf389247da">&#9670;&nbsp;</a></span>Text_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t.html">T</a> Text_box </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7befab40ef3ff58b0a3fc4a1c079483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7befab40ef3ff58b0a3fc4a1c079483">&#9670;&nbsp;</a></span>Text_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* Text_get </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_t.html">T</a>&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac4eb56c8da573ed064ca1864ef32da83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4eb56c8da573ed064ca1864ef32da83">&#9670;&nbsp;</a></span>Text_pos()</h2>
 
@@ -174,6 +250,58 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab44172d49224ae1bee49a229aa23bf1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab44172d49224ae1bee49a229aa23bf1f">&#9670;&nbsp;</a></span>Text_put()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t.html">T</a> Text_put </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c4a22f63fc61f3ed1c96502f86ece79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4a22f63fc61f3ed1c96502f86ece79">&#9670;&nbsp;</a></span>Text_sub()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t.html">T</a> Text_sub </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_t.html">T</a>&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
