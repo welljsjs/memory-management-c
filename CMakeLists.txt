@@ -14,6 +14,7 @@ project(libmem VERSION 0.1.0
 # Generate static library from library sources
 add_library (mem STATIC
 	src/arena.c
+	src/atom.c
 	src/assert.c
 	src/except.c
 	src/mem.c
