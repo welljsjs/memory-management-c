@@ -17,61 +17,57 @@
  * along with "libmem".  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <signal.h>
-#include <sys/time.h>
 #include "assert.h"
-#include "thread.h"
+#include "mem.h"
+#include "chan.h"
 #include "sem.h"
 
-void _MONITOR(void) {}
-extern void _ENDMONITOR(void);
-
-#define T Thread_T
-#define isempty(q) ((q) == NULL)
+#define T Chan_T
 struct T
 {
-  unsigned long *sp; /* must be first */
-  T link;
-  T *inqueue;
+  void const *ptr;
+  int *size;
+  Sem_T send, recv, sync;
 };
 
-static T ready = NULL;
-
-static void put(T t, T *q)
+T Chan_new(void)
 {
-  assert(t);
-  assert(t->inqueue == NULL && t->link == NULL);
-  if (*q)
-  {
-    t->link = (*q)->link;
-    (*q)->link = t;
-  }
-  else
-    t->link = t;
-  *q = t;
-  t->inqueue = q;
-}
-static T get(T *q)
-{
-  T t;
+  T c;
 
-  assert(!isempty(*q));
-  t = (*q)->link;
-  if (t == *q)
-    *q = NULL;
-  else
-    (*q)->link = t->link;
-  assert(t->inqueue == q);
-  t->link = NULL;
-  t->inqueue = NULL;
-  return t;
+  NEW(c);
+  Sem_init(&c->send, 1);
+  Sem_init(&c->recv, 0);
+  Sem_init(&c->sync, 0);
+  return c;
 }
 
-#undef T
+int Chan_send(Chan_T c, void const *ptr, int size)
+{
+  assert(c);
+  assert(ptr);
+  assert(size >= 0);
+  Sem_wait(&c->send);
+  c->ptr = ptr;
+  c->size = &size;
+  Sem_signal(&c->recv);
+  Sem_wait(&c->sync);
+  return size;
+}
 
-#define T Sem_T
+int Chan_receive(Chan_T c, void * ptr, int size)
+{
+  int n;
 
-#undef T
+  assert(c);
+  assert(ptr);
+  assert(size >= 0);
+  Sem_wait(&c->recv);
+  n = *n->size;
+  if (size < n) n = size;
+  *c->size = n;
+  if (n > 0) memcpy(ptr, c->ptr, n);
+  Sem_signal(&c->sync);
+  Sem_signal(&c->send);
+  return n;
+}
