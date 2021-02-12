@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['raise_268',['RAISE',['../except_8h.html#a45e87c4d7dee50346b15c7761b0b340a',1,'except.h']]],
-  ['reraise_269',['RERAISE',['../except_8h.html#a947ef43f0f0def3fcc050a8df849fd16',1,'except.h']]],
-  ['resize_270',['RESIZE',['../mem_8h.html#a2dd9e1ed5a4d80d0a7c08ba2df512172',1,'mem.h']]],
-  ['return_271',['RETURN',['../except_8h.html#a6a0e6b80dd3d5ca395cf58151749f5e2',1,'except.h']]]
+  ['nalloc_311',['NALLOC',['../memchk_8c.html#ac6dcef7a1829fc392ee1ed77205ec2ff',1,'memchk.c']]],
+  ['ndescriptors_312',['NDESCRIPTORS',['../memchk_8c.html#af19c92f3510d88d327336afc24f490a4',1,'memchk.c']]],
+  ['nelems_313',['NELEMS',['../atom_8c.html#a22dd9d967cbe39a94c26153f1e96ec1e',1,'atom.c']]],
+  ['new_314',['NEW',['../mem_8h.html#a6dcbdd586f47a62900804da2a6102a2e',1,'mem.h']]],
+  ['new0_315',['NEW0',['../mem_8h.html#aa1ee572e1a56579657d6568ddbc8cab5',1,'mem.h']]]
 ];
